@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A7F0E3C2-5B1D-4F6A-9C3E-7D2B8A1F4E60}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GetHub</RootNamespace>
+    <AssemblyName>GetHub</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <LangVersion>5</LangVersion>
+    <StartupObject>GetHub.Program</StartupObject>
+    <ApplicationIcon>Resources\GetHub.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\CommitDiffView.cs" />
+    <Compile Include="Controls\CommitFilesView.cs" />
+    <Compile Include="Controls\CommitGraphView.cs" />
+    <Compile Include="Controls\CommitMessageView.cs" />
+    <Compile Include="Controls\CommitSectionTabs.cs" />
+    <Compile Include="Controls\CommitStatusPainter.cs" />
+    <Compile Include="Controls\GitHubSectionView.cs" />
+    <Compile Include="Controls\LogoView.cs" />
+    <Compile Include="Controls\RepoAboutPanel.cs" />
+    <Compile Include="Controls\RepoCard.cs" />
+    <Compile Include="Controls\RepoHistoryView.cs" />
+    <Compile Include="Controls\RepoIcons.cs" />
+    <Compile Include="Controls\RepoIssuesView.cs" />
+    <Compile Include="Controls\RepoPlaceholderPanel.cs" />
+    <Compile Include="Controls\RepoProjectsView.cs" />
+    <Compile Include="Controls\RepoTabStrip.cs" />
+    <Compile Include="Controls\RepoView.cs" />
+    <Compile Include="Controls\WelcomeView.cs" />
+    <Compile Include="Forms\AddRepoForm.cs" />
+    <Compile Include="Forms\DownloadProgressForm.cs" />
+    <Compile Include="Forms\MainForm.cs" />
+    <Compile Include="Forms\SettingsForm.cs" />
+    <Compile Include="Forms\SignInForm.cs" />
+    <Compile Include="Models\AppSettings.cs" />
+    <Compile Include="Models\CommitDetail.cs" />
+    <Compile Include="Models\CommitFile.cs" />
+    <Compile Include="Models\CommitInfo.cs" />
+    <Compile Include="Models\ContributorInfo.cs" />
+    <Compile Include="Models\DownloadProgress.cs" />
+    <Compile Include="Models\GitHubAccount.cs" />
+    <Compile Include="Models\IssueDetail.cs" />
+    <Compile Include="Models\IssueSummary.cs" />
+    <Compile Include="Models\ProjectSummary.cs" />
+    <Compile Include="Models\ReleaseInfo.cs" />
+    <Compile Include="Models\RepoRecord.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\GitHubPageStyles.cs" />
+    <Compile Include="Rendering\HtmlSanitizer.cs" />
+    <Compile Include="Rendering\IssuePageBuilder.cs" />
+    <Compile Include="Rendering\MarkdownRenderer.cs" />
+    <Compile Include="Rendering\PathResolver.cs" />
+    <Compile Include="Rendering\ProjectPageBuilder.cs" />
+    <Compile Include="Rendering\RepoContext.cs" />
+    <Compile Include="Rendering\SiteBuilder.cs" />
+    <Compile Include="Rendering\SyntaxHighlighter.cs" />
+    <Compile Include="Services\CommitCache.cs" />
+    <Compile Include="Services\GitHistoryReader.cs" />
+    <Compile Include="Services\GitHubApi.cs" />
+    <Compile Include="Services\GitHubAuthService.cs" />
+    <Compile Include="Services\GitHubDownloader.cs" />
+    <Compile Include="Services\GitHubException.cs" />
+    <Compile Include="Services\GitHubIssueService.cs" />
+    <Compile Include="Services\GitHubProjectService.cs" />
+    <Compile Include="Services\IssueCache.cs" />
+    <Compile Include="Services\ProjectCache.cs" />
+    <Compile Include="Services\RepoReference.cs" />
+    <Compile Include="Services\RepoStore.cs" />
+    <Compile Include="Utilities\AppAssets.cs" />
+    <Compile Include="Utilities\Display.cs" />
+    <Compile Include="Utilities\FileUtil.cs" />
+    <Compile Include="Utilities\UiTheme.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\GetHub.ico">
+      <LogicalName>GetHub.Resources.GetHub.ico</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GetHub.png">
+      <LogicalName>GetHub.Resources.GetHub.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="Resources\GetHub_logo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\UI_design.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,9 @@
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\bin\Release\Resources\GetHub_logo.jpg
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\bin\Release\Resources\UI_design.jpg
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\bin\Release\GetHub.exe.config
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\bin\Release\GetHub.exe
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\bin\Release\GetHub.pdb
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\obj\Release\GetHub.csproj.AssemblyReference.cache
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\obj\Release\GetHub.csproj.CoreCompileInputs.cache
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\obj\Release\GetHub.exe
+C:\Users\HP\OneDrive\Documents\Offline Browser\src\GetHub\obj\Release\GetHub.pdb
