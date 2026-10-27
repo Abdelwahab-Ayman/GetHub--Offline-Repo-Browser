@@ -1,4 +1,3 @@
-<img src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/GitHub_app_README_showcase_image_20261027180326.jpg"></img>
 # GetHub – Offline Repo Browser
 <img align="left" width="150" src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/GetHub.png_20261027175622.png"></img>
 
@@ -6,9 +5,11 @@ GetHub is a Windows desktop application for browsing Git repositories without an
 
 Everything stays local. Repositories, settings and the GitHub token are stored under `%LocalAppData%\GetHub`.
 
+<img src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/GitHub_app_README_showcase_image_20261027180326.jpg"></img>
+
 ---
 
-## Requirements
+#### Requirements
 
 | Requirement | Needed for |
 |---|---|
@@ -22,9 +23,9 @@ There are no NuGet packages, no administrator rights and no third-party installe
 
 ---
 
-## Quick start
+#### Quick start
 
-### Option 1 – install the ready-made setup (recommended)
+#### Option 1 – install the ready-made setup (recommended)
 
 1. Download or clone this repository.
 2. Run **`dist\GetHubSetup.exe`**.
@@ -49,7 +50,7 @@ Silent install (useful for scripts):
 
 To uninstall, use **Settings → Apps → GetHub**, or run `Uninstall.exe /quiet` from the install folder. Your settings, sign-in and downloaded repositories are kept unless you tick the delete option in the uninstaller. `/removedata` also removes them.
 
-### Option 2 – build and run from source
+#### Option 2 – build and run from source
 
 ```powershell
 git clone https://github.com/Abdelwahab-Ayman/GetHub--Offline-Repo-Browser.git
@@ -68,7 +69,7 @@ If PowerShell blocks the script, the command above bypasses the policy for that 
 
 You can also open **`GetHub.sln`** in Visual Studio 2022, select **Release – Any CPU**, and press **F5**. Visual Studio needs the .NET Framework 4.8 targeting pack as well.
 
-### Option 3 – build the single-file installer
+#### Option 3 – build the single-file installer
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\package.ps1
@@ -78,12 +79,12 @@ This builds the app, compiles the uninstaller, compresses the payload and writes
 
 ---
 
-## Using GetHub
-
-### Open a local repository
+#### Using GetHub
+<img src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/Windows_client_promotional_banner_20261027180720.jpg"></img>
+#### Open a local repository
 Drag a repository folder onto the GetHub window. GetHub reads its `.git` history when one is present and shows the last downloaded issues/projects if they exist.
 
-### Download a repository from GitHub
+#### Download a repository from GitHub
 1. Select **Add repository**.
 2. Paste a URL such as `https://github.com/dotnet/runtime`, `owner/repository`, or a `git@github.com:...` address.
 3. Optionally choose a branch; leave it blank for the default branch.
@@ -91,7 +92,7 @@ Drag a repository folder onto the GetHub window. GetHub reads its `.git` history
 
 Public repositories work while signed out. Private repositories need a signed-in account.
 
-### Sign in to GitHub
+#### Sign in to GitHub
 GetHub uses a personal access token instead of an OAuth app.
 
 1. On GitHub, open **Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token**.
@@ -100,15 +101,15 @@ GetHub uses a personal access token instead of an OAuth app.
 
 The token is checked against `api.github.com` before it is saved, stored only in `%LocalAppData%\GetHub\settings.json`, and can be removed with **Sign out** in Settings. The `read:project` scope is what lets the Projects tab load project boards.
 
-### Issues and projects
+#### Issues and projects
 Choose a repository, then select the **Issues** or **Projects** tab. GetHub keeps the last downloaded copy on disk, so lists and issue comments stay readable offline. Links that cannot be shown in the app open in your normal browser.
 
-### Themes
+#### Themes
 Switch between dark and light under **Settings → Theme**. The change applies immediately without restarting.
 
----
 
-## Where your data lives
+
+#### Where your data lives
 
 | Path | Contents |
 |---|---|
@@ -121,8 +122,8 @@ Switch between dark and light under **Settings → Theme**. The change applies i
 The app registers IE11 emulation for its embedded browser under `HKCU\Software\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION`. The uninstaller removes it.
 
 ---
-
-## Project layout
+<img align="right" width="150" src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/GetHub.png_20261027175622.png"></img>
+#### Project layout
 
 | Path | Purpose |
 |---|---|
@@ -139,7 +140,7 @@ The repository intentionally commits the current `build\` and `dist\` binaries s
 
 ---
 
-## Troubleshooting
+#### Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -153,6 +154,6 @@ The repository intentionally commits the current `build\` and `dist\` binaries s
 
 ---
 
-## License
+#### License
 
 See [LICENSE](LICENSE).
