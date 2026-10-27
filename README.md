@@ -1,4 +1,6 @@
+<img src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/GitHub_app_README_showcase_image_20261027180326.jpg"></img>
 # GetHub – Offline Repo Browser
+<img align="left" width="150" src="https://github.com/Abdelwahab-Ayman/media/blob/main/GetHub/GetHub.png_20261027175622.png"></img>
 
 GetHub is a Windows desktop application for browsing Git repositories without an internet connection. Open a local clone or a downloaded repository, explore files and folders, read code and rendered READMEs, and review commit history, branches, tags and diffs. It can also download public or private repositories from GitHub and read their issues and project boards inside the app.
 
