@@ -1,0 +1,11 @@
+# Visual Studio local state
+.vs/
+
+# Compiler output (the packaged app in build\ and dist\ is committed on purpose)
+src/**/bin/
+src/**/obj/
+installer/obj/
+
+# Local test repositories browsed by the app
+snapshot/*
+!snapshot/readme.md

@@ -123,7 +123,7 @@ namespace GetHub.Controls
         private const int IconGap = 16;
         private const int TitleGap = 6;
         private const int ButtonGap = 22;
-        private const int MinTop = 28;
+        private const int EdgeMargin = 8;
 
         private void LayoutContent()
         {
@@ -186,9 +186,15 @@ namespace GetHub.Controls
             }
 
             int top = (ClientSize.Height - total) / 2;
-            if (top < MinTop)
+            int lowest = ClientSize.Height - total - EdgeMargin;
+            if (top > lowest)
             {
-                top = MinTop;
+                top = lowest;
+            }
+
+            if (top < EdgeMargin)
+            {
+                top = EdgeMargin;
             }
 
             return new Rectangle(Math.Max(0, (width - IconSize) / 2), top, IconSize, IconSize);
