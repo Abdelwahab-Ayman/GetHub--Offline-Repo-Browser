@@ -48,29 +48,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\CommitDiffView.cs" />
-    <Compile Include="Controls\CommitFilesView.cs" />
-    <Compile Include="Controls\CommitGraphView.cs" />
-    <Compile Include="Controls\CommitMessageView.cs" />
-    <Compile Include="Controls\CommitSectionTabs.cs" />
+    <Compile Include="Controls\CommitDiffView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommitFilesView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommitGraphView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommitMessageView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\CommitSectionTabs.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\CommitStatusPainter.cs" />
-    <Compile Include="Controls\GitHubSectionView.cs" />
-    <Compile Include="Controls\LogoView.cs" />
-    <Compile Include="Controls\RepoAboutPanel.cs" />
-    <Compile Include="Controls\RepoCard.cs" />
-    <Compile Include="Controls\RepoHistoryView.cs" />
+    <Compile Include="Controls\GitHubSectionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\LogoView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoAboutPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoHistoryView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\RepoIcons.cs" />
-    <Compile Include="Controls\RepoIssuesView.cs" />
-    <Compile Include="Controls\RepoPlaceholderPanel.cs" />
-    <Compile Include="Controls\RepoProjectsView.cs" />
-    <Compile Include="Controls\RepoTabStrip.cs" />
-    <Compile Include="Controls\RepoView.cs" />
-    <Compile Include="Controls\WelcomeView.cs" />
-    <Compile Include="Forms\AddRepoForm.cs" />
-    <Compile Include="Forms\DownloadProgressForm.cs" />
-    <Compile Include="Forms\MainForm.cs" />
-    <Compile Include="Forms\SettingsForm.cs" />
-    <Compile Include="Forms\SignInForm.cs" />
+    <Compile Include="Controls\RepoIssuesView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoPlaceholderPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoProjectsView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoTabStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\RepoView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WelcomeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\AddRepoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DownloadProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SignInForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Models\AppSettings.cs" />
     <Compile Include="Models\CommitDetail.cs" />
     <Compile Include="Models\CommitFile.cs" />

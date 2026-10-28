@@ -17,6 +17,7 @@ namespace GetHub.Controls
         private const int FileHeaderHeight = 28;
         private const int GutterWidth = 42;
         private const int TextLeft = 96;
+        private const int SplitDivider = 320;
         private const int MaxRows = 20000;
 
         private static readonly Regex HunkPattern = new Regex(
@@ -32,10 +33,12 @@ namespace GetHub.Controls
         {
             File,
             Hunk,
+            Split,
+            Note,
             Context,
             Addition,
             Deletion,
-            Note
+            Blank
         }
 
         private sealed class Row
@@ -46,6 +49,10 @@ namespace GetHub.Controls
             public int NewLine;
             public int FileIndex;
             public bool TruncatedRow;
+            public string LeftText;
+            public string RightText;
+            public RowKind LeftKind;
+            public RowKind RightKind;
         }
 
         private readonly Font _monoFont;
