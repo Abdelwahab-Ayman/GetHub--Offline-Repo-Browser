@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>GetHub</id>
+    <version>1.0.0</version>
+    <authors>Abdelwahab-Ayman</authors>
+    <owners>Abdelwahab-Ayman</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>GetHub - Offline Repo Browser for Windows</description>
+    <tags>git github windows winforms offline</tags>
+    <license type="expression">MIT</license>
+  </metadata>
+  <files>
+    <file src="build\**\*.*" target="tools" />
+  </files>
+</package>
