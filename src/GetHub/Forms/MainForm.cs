@@ -146,21 +146,18 @@ namespace GetHub.Forms
             addButton.Click += delegate { AddRepository(); };
             actions.Controls.Add(addButton);
 
-            Button settingsButton = UiTheme.MakeButton("Settings", ButtonStyle.Secondary);
+            Button settingsButton = UiTheme.MakeDarkBarButton("Settings");
             settingsButton.Size = new Size(84, 32);
             settingsButton.Margin = new Padding(8, 0, 0, 0);
             settingsButton.Click += delegate { ShowSettings(); };
             actions.Controls.Add(settingsButton);
 
-            _accountButton = UiTheme.MakeButton("Sign in", ButtonStyle.Secondary);
+            _accountButton = UiTheme.MakeDarkBarButton("Sign in");
             _accountButton.Size = new Size(84, 32);
             _accountButton.Margin = new Padding(8, 0, 0, 0);
             _accountButton.Click += delegate { ShowAccount(); };
             actions.Controls.Add(_accountButton);
             UpdateAccountButton();
-            AddWindowControlButtons(topBar);
-
-            AddWindowControlButtons(topBar);
 
             Panel topBarBorder = new Panel();
             topBarBorder.Dock = DockStyle.Bottom;
@@ -308,6 +305,7 @@ namespace GetHub.Forms
         {
             UiTheme.SetCueBanner(_searchBox, "Search repositories");
             ResizeCards();
+            ApplyDwmTheme();
         }
 
         private static Label MakeNavItem(string text, bool active, EventHandler onClick)
@@ -895,81 +893,6 @@ namespace GetHub.Forms
             }
         }
 
-        private void AddWindowControlButtons(Panel topBar)
-        {
-            FlowLayoutPanel windowButtons = new FlowLayoutPanel();
-            windowButtons.Dock = DockStyle.Right;
-            windowButtons.AutoSize = true;
-            windowButtons.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            windowButtons.FlowDirection = FlowDirection.LeftToRight;
-            windowButtons.WrapContents = false;
-            windowButtons.BackColor = UiTheme.DarkBar;
-            windowButtons.Margin = Padding.Empty;
-            windowButtons.Padding = new Padding(0, 0, 0, 0);
-            topBar.Controls.Add(windowButtons);
-            windowButtons.BringToFront();
-
-            Button minimizeButton = new Button();
-            minimizeButton.Text = "\u2014";
-            minimizeButton.Size = new Size(46, 32);
-            minimizeButton.FlatStyle = FlatStyle.Flat;
-            minimizeButton.FlatAppearance.BorderSize = 0;
-            minimizeButton.BackColor = UiTheme.DarkBar;
-            minimizeButton.ForeColor = UiTheme.DarkBarText;
-            minimizeButton.Font = new Font("Segoe UI", 9F);
-            minimizeButton.Cursor = Cursors.Hand;
-            minimizeButton.Margin = new Padding(0);
-            minimizeButton.Click += delegate { WindowState = FormWindowState.Minimized; };
-            minimizeButton.MouseEnter += delegate { minimizeButton.BackColor = UiTheme.HoverBackground; };
-            minimizeButton.MouseLeave += delegate { minimizeButton.BackColor = UiTheme.DarkBar; };
-            windowButtons.Controls.Add(minimizeButton);
-
-            Button maximizeButton = new Button();
-            maximizeButton.Text = "\u25A1";
-            maximizeButton.Size = new Size(46, 32);
-            maximizeButton.FlatStyle = FlatStyle.Flat;
-            maximizeButton.FlatAppearance.BorderSize = 0;
-            maximizeButton.BackColor = UiTheme.DarkBar;
-            maximizeButton.ForeColor = UiTheme.DarkBarText;
-            maximizeButton.Font = new Font("Segoe UI", 10F);
-            maximizeButton.Cursor = Cursors.Hand;
-            maximizeButton.Margin = new Padding(0);
-            maximizeButton.Click += delegate {
-                if (WindowState == FormWindowState.Maximized)
-                {
-                    WindowState = FormWindowState.Normal;
-                }
-                else
-                {
-                    WindowState = FormWindowState.Maximized;
-                }
-            };
-            maximizeButton.MouseEnter += delegate { maximizeButton.BackColor = UiTheme.HoverBackground; };
-            maximizeButton.MouseLeave += delegate { maximizeButton.BackColor = UiTheme.DarkBar; };
-            windowButtons.Controls.Add(maximizeButton);
-
-            Button closeButton = new Button();
-            closeButton.Text = "\u2715";
-            closeButton.Size = new Size(46, 32);
-            closeButton.FlatStyle = FlatStyle.Flat;
-            closeButton.FlatAppearance.BorderSize = 0;
-            closeButton.BackColor = UiTheme.DarkBar;
-            closeButton.ForeColor = UiTheme.DarkBarText;
-            closeButton.Font = new Font("Segoe UI", 9F);
-            closeButton.Cursor = Cursors.Hand;
-            closeButton.Margin = new Padding(0);
-            closeButton.Click += delegate { Close(); };
-            closeButton.MouseEnter += delegate {
-                closeButton.BackColor = ColorTranslator.FromHtml("#e81123");
-                closeButton.ForeColor = Color.White;
-            };
-            closeButton.MouseLeave += delegate {
-                closeButton.BackColor = UiTheme.DarkBar;
-                closeButton.ForeColor = UiTheme.DarkBarText;
-            };
-            windowButtons.Controls.Add(closeButton);
-        }
-
         private void UpdateAccountButton()
         {
             if (_accountButton == null || _accountButton.IsDisposed)
@@ -1016,7 +939,27 @@ namespace GetHub.Forms
             }
 
             Invalidate(true);
+            ApplyDwmTheme();
         }
+
+        // Tells the Windows Desktop Window Manager to use the dark or light caption bar
+        // (title bar, system buttons, window border) to match the app theme.
+        // DWMWA_USE_IMMERSIVE_DARK_MODE = 20 (Windows 10 build 18985+ / Windows 11).
+        // We silently ignore failures on older builds that don't support the attribute.
+        private void ApplyDwmTheme()
+        {
+            try
+            {
+                int useDark = UiTheme.IsLight ? 0 : 1;
+                DwmSetWindowAttribute(Handle, 20, ref useDark, sizeof(int));
+            }
+            catch
+            {
+            }
+        }
+
+        [System.Runtime.InteropServices.DllImport("dwmapi.dll")]
+        private static extern int DwmSetWindowAttribute(IntPtr hwnd, int attr, ref int attrValue, int attrSize);
 
         private static bool SameRepository(RepoRecord record, RepoReference reference)
         {

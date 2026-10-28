@@ -109,6 +109,19 @@ namespace GetHub.Utilities
             get { return IsLight ? ColorTranslator.FromHtml("#f3f4f6") : ColorTranslator.FromHtml("#21262d"); }
         }
 
+        // Hover/press colours for buttons that sit directly on the DarkBar surface.
+        // In light mode the bar is near-white (#f6f8fa) so we need a clearly darker step;
+        // in dark mode the same HoverBackground shade works fine.
+        public static Color DarkBarHover
+        {
+            get { return IsLight ? ColorTranslator.FromHtml("#e8ebee") : ColorTranslator.FromHtml("#21262d"); }
+        }
+
+        public static Color DarkBarPress
+        {
+            get { return IsLight ? ColorTranslator.FromHtml("#d8dde3") : ColorTranslator.FromHtml("#30363d"); }
+        }
+
         public static readonly Font BodyFont = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
         public static readonly Font BodyBold = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
         public static readonly Font SmallFont = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -181,6 +194,30 @@ namespace GetHub.Utilities
                     break;
             }
 
+            return button;
+        }
+
+        // Creates a secondary-style button that blends into the top bar (DarkBar) background
+        // on both dark and light themes. The background matches DarkBar exactly and hover/press
+        // colours are legible against it on either theme.
+        public static Button MakeDarkBarButton(string text)
+        {
+            Button button = new Button();
+            button.Text = text;
+            button.FlatStyle = FlatStyle.Flat;
+            button.FlatAppearance.BorderSize = 1;
+            button.FlatAppearance.BorderColor = IsLight
+                ? ColorTranslator.FromHtml("#d0d7de")
+                : ColorTranslator.FromHtml("#30363d");
+            button.Font = BodyFont;
+            button.Cursor = Cursors.Hand;
+            button.UseVisualStyleBackColor = false;
+            button.TabStop = true;
+            button.Height = 32;
+            button.BackColor = DarkBar;
+            button.ForeColor = DarkBarText;
+            button.FlatAppearance.MouseOverBackColor = DarkBarHover;
+            button.FlatAppearance.MouseDownBackColor = DarkBarPress;
             return button;
         }
 
